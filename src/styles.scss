@@ -85,7 +85,19 @@ body {
 .login-wrapper .example-full-width,
 .login-wrapper .btn-block {
   width: 100%;
-  color:purple;
+  color: green;
+}
+
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; }
+input:focus::-moz-placeholder { color:transparent; }
+input:focus:-ms-input-placeholder { color:transparent; }
+.sign{
+    font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #fff;
+  margin-left: 35%;
 }
 
 .login-wrapper mat-card-header {

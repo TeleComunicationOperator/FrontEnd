@@ -9,12 +9,15 @@ import { RegisterComponent } from './register/register.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { HomeDashComponent } from './home-dash/home-dash.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HomeDashComponent
+
   ],
   imports: [
     BrowserModule,
