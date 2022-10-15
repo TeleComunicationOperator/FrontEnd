@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Operator } from './models/Operator';
+import { User } from './models/User';
 const TOKEN_KEY='AuthToken';
 const EMAIL_KEY='AuthUsername';
 const USER_ROLE='AuthUserRoles';
@@ -12,6 +13,7 @@ export class ServicesService {
   roles:Array<string>=[];
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   Url='http://34.238.36.139/'
+  UrlUsers='http://34.238.36.139/users/signup'
 
   constructor(private http:HttpClient) { }
 
@@ -26,6 +28,13 @@ export class ServicesService {
   getOperators(){
     return this.http.get<Operator[]>(this.Url + "operators");
   }
+  public createOperator(operator:Operator,user:User){
+    this.http.post<User>(this.UrlUsers,user);
+    return this.http.post<Operator>(this.Url + "operators",operator);
+    
+  }
+
+  
 
   public setToken(token:string):void{
     window.sessionStorage.removeItem(TOKEN_KEY);

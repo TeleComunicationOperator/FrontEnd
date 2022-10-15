@@ -8,36 +8,32 @@
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Name">
+            <input matInput placeholder="Name" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Last Name">
+            <input matInput placeholder="Last Name" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="DNI">
+            <input matInput placeholder="DNI" [(ngModel)]="dni" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Phone" type="tel">
+            <input matInput placeholder="Phone" type="tel" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
   
-          
-            <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" type="email">
-            </mat-form-field>
-
-         
-          
-  
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Password" type="password">
+          <input matInput placeholder="Email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
   
 
   
         </mat-card-content>
   
-        <button mat-stroked-button color="accent" class="btn-block">Register</button>
+        <button mat-stroked-button color="accent" class="btn-block" (click)="register()">Register</button>
         <button mat-stroked-button color="accent" class="btn-block" style="margin-top: 5%;" routerLink="/login">Back</button>
   
       </form>

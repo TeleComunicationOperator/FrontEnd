@@ -7,4 +7,12 @@ export class Operator{
     email: string;
     type: string;
     keyWordList: string[];
+    constructor(name:string,lastName:string,dni:string,phone:string,email:string){
+        this.name=name;
+        this.lastName=lastName;
+        this.dni=dni;
+        this.phone=phone;
+        this.email=email;
+        this.type="PENDIENTE";
+    }
 }
