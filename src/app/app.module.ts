@@ -10,13 +10,19 @@ import { AngularMaterialModule } from './angular-material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { HomeDashComponent } from './home-dash/home-dash.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { HomeComponent } from './home/home.component';
+import { ClientesComponent } from './clientes/clientes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    HomeDashComponent
+    HomeDashComponent,
+    NavBarComponent,
+    HomeComponent,
+    ClientesComponent
 
   ],
   imports: [

@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     console.log("pass",this.password)
     if(this.loginService.authentication(this.email,this.password)){
       this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:1000})
-      this.router.navigate(['home']);
+      this.router.navigate(['teleoperadores']);
       this.invalidLogin=false;
       return ;
     }

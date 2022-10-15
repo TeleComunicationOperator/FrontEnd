@@ -8,6 +8,9 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./home-dash.component.scss']
 })
 export class HomeDashComponent {
+
+  constructor(private breakpointObserver: BreakpointObserver) {}
+  
   /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -29,5 +32,5 @@ export class HomeDashComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  
 }

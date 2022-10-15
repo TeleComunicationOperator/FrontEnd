@@ -38,7 +38,7 @@ body {
   float: left;
   padding: 60px 50px 40px 50px;
   width: 100%;
-  background: rgba(100,36,246,255);
+  background: #2596be;
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -55,7 +55,9 @@ body {
   opacity: .8;
   z-index: -1;
 }
-
+.sign:hover{
+  color:gray;
+}
 .box:before {
   content: "";
   width: 100%;
@@ -81,11 +83,21 @@ body {
 .inputs{
     color:red;
 }
+.example-full-width{
+  width: 100%;
+  color:#fff;
+}
 
-.login-wrapper .example-full-width,
+.login-wrapper ,
 .login-wrapper .btn-block {
   width: 100%;
   color: green;
+}
+
+.btn-block:hover{
+  color:gray;
+  border-color:red;
+  background-color: #581ddf;
 }
 
 input:focus::-webkit-input-placeholder { color:transparent; }
