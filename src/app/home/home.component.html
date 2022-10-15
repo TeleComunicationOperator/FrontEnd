@@ -10,18 +10,38 @@
         <a mat-list-item routerLink="/">Salir</a>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
-        <span>Teleoperadores</span>
+    <mat-sidenav-content >
+      <mat-toolbar color="primary" style="height: 70px;">
+       
+        <span style="justify-content: flex-start;">Teleoperadores</span>
+        <mat-card style="justify-content: flex-end; margin-left: 83.5%; width: 140px; height: 45px;" >
+          <mat-card-header style="margin: auto;">
+            <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" mat-card-avatar>
+            <mat-card-title >Omar</mat-card-title>
+            <mat-card-subtitle >Admin</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
       </mat-toolbar>
+
+      <table style="border: 1px solid;" >
+        <thead style="margin-left: 10%; border: 1px solid;">
+          <th>ID</th>
+          <th>NOMBRES</th>
+          <th>APELLIDOS</th>
+          <th>NIVEL DE EXPERIENCIA</th>
+          <th>INFORMACIÓN ADICIONAL</th>
+          <th>ASIGNAR PALABRA CLAVE</th>
+        </thead>
+        <tr *ngFor="let operator of operators" style="margin: auto; padding: auto;border: 1px solid;">
+          <td>{{operator.id}}</td>
+          <td>{{operator.name}}</td>
+          <td>{{operator.lastName}}</td>
+          <td>{{operator.type}}</td>
+          <td><button>Ver más</button></td>
+          <td><button>Asignar</button></td>
+
+        </tr>
+      </table>
      
     </mat-sidenav-content>
   </mat-sidenav-container>

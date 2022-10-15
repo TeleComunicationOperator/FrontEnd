@@ -11,18 +11,19 @@
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-      <mat-toolbar color="primary">
-        <button
-          type="button"
-          aria-label="Toggle sidenav"
-          mat-icon-button
-          (click)="drawer.toggle()"
-          *ngIf="isHandset$ | async">
-          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-        </button>
+      <mat-toolbar color="primary" style="height: 70px;">
+        
         <span>Clientes</span>
+
+        <mat-card style="justify-content: flex-end; margin-left: 87.5%; width: 140px; height: 45px;" >
+          <mat-card-header style="margin: auto;">
+            <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" mat-card-avatar>
+            <mat-card-title >Omar</mat-card-title>
+            <mat-card-subtitle >Admin</mat-card-subtitle>
+          </mat-card-header>
+        </mat-card>
       </mat-toolbar>
-     
+     <table-component></table-component>
     </mat-sidenav-content>
   </mat-sidenav-container>
   
