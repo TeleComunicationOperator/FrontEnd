@@ -30,7 +30,12 @@ export class LoginComponent implements OnInit {
       this.invalidLogin=false;
       return ;
     }
-
+    if(this.loginService.authenticationOperator(this.email,this.password)){
+      this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:1000})
+      this.router.navigate(['teleoperadores']);
+      this.invalidLogin=false;
+      return ;
+    }
     
     this.snackBar.openFromComponent(SnackBarComponentFail,{duration:1000})
     

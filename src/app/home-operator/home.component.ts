@@ -3,28 +3,33 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { map, shareReplay } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { Operator } from '../models/Operator';
 import { ServicesService } from '../services.service';
-import { Client } from '../models/Client';
 
 @Component({
-  selector: 'app-clientes',
-  templateUrl: './clientes.component.html',
-  styleUrls: ['./clientes.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class ClientesComponent implements OnInit {
-  clients:Client[]
+export class HomeComponent implements OnInit {
 
+  operators:Operator[];
   constructor(private router:Router,private breakpointObserver: BreakpointObserver,private service:ServicesService) { }
+
+  titulo="Home"
+  ngOnInit(): void {
+    this.service.getOperators().subscribe(data=>{
+      this.operators=data;
+    })
+  }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
-  ngOnInit(): void {
-    this.service.getClients().subscribe(data=>{
-      this.clients=data;
-    })
-  }
+
+
+  
 
 }

@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     console.log("email",this.email)
     console.log("password",this.password)
     this.user=new User(this.name,this.email,this.password,["ROLE_CLIENT"]);
-    this.operator=new Operator(this.name,this.lastName,this.dni,this.phone,this.email);
+    this.operator=new Operator(this.name,this.lastName,this.dni,"PENDIENTE",this.phone,this.email);
     this.service.createOperator(this.operator,this.user).subscribe(data=>{
       alert("Operator creado");
     })

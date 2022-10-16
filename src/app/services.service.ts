@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http'
 import { Operator } from './models/Operator';
 import { User } from './models/User';
+import { Client } from './models/Client';
 const TOKEN_KEY='AuthToken';
 const EMAIL_KEY='AuthUsername';
 const USER_ROLE='AuthUserRoles';
@@ -18,15 +19,31 @@ export class ServicesService {
   constructor(private http:HttpClient) { }
 
   authentication(email: any,password: any){
-    if(email.match("omar_jesus23@hotmail.com") && password=="waltertrash"){
-      
+    if(email.match("grecia@gmail.com") && password=="grecia"){
+      return true;
+    }
+    return false;
+  }
+  authenticationOperator(email: any,password: any){
+    var flag = this.signin(email,password);
+    if(email.match("grecia@gmail.com") && password=="grecia"){
+      return true;
+    }
+    if(flag){
       return true;
     }
     return false;
   }
 
+  signin(email:any,password:any){
+    return this.http.post(this.Url+'users/sigin?email=' + email+'&password='+ password, null);
+  }
+
   getOperators(){
     return this.http.get<Operator[]>(this.Url + "operators");
+  }
+  getClients(){
+    return this.http.get<Client[]>(this.Url + "clients");
   }
   public createOperator(operator:Operator,user:User){
     this.http.post<User>(this.UrlUsers,user);

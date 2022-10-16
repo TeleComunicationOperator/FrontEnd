@@ -1,29 +1,41 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport
-        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'"
-        [opened]="(isHandset$ | async) === false">
-      <mat-toolbar>Alexia</mat-toolbar>
-      <mat-nav-list>
-        <a mat-list-item routerLink="/teleoperadores">TeleOperadores</a>
-        <a mat-list-item >Clientes</a>
-        <a mat-list-item href="#">Salir</a>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <mat-toolbar color="primary" style="height: 70px;">
-        
-        <span>Clientes</span>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Alexia</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/teleoperadores">TeleOperadores</a>
+      <a mat-list-item autofus style="background-color:rgb(167, 167, 167)">Clientes</a>
+      <a mat-list-item routerLink="/">Salir</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="height: 70px;background-color: white;">
+      <span style="justify-content: flex-start;color: black;">Teleoperadores</span>
+      <mat-card style="justify-content: flex-end; margin-left: 83.7%; width: 160px; height: 70px;background-color: #ffffff;" >
+        <mat-card-header style="margin: auto;">
+          <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" mat-card-avatar>
+          <mat-card-subtitle style="color:black">Admin</mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+    </mat-toolbar>
+    <table class="table">
+      <thead>
+        <th scope="col">ID</th>
+        <th scope="col">NOMBRES</th>
+        <th scope="col">APELLIDOS</th>
+        <th scope="col">PALABRAS CLAVE</th>
+        <th scope="col">RESUMEN</th>
+      </thead>
+      <tr *ngFor="let client of clients;let i = index" style="margin: auto; padding: auto;border: 1px solid;">
+        <th scope="row">{{i+1}}</th>
+        <td>{{client.name}}</td>
+        <td>{{client.lastName}}</td>
+        <td>{{client.key}}</td>
+        <td>{{client.speech}}</td>
+      </tr>
+    </table>     
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-        <mat-card style="justify-content: flex-end; margin-left: 87.5%; width: 140px; height: 45px;" >
-          <mat-card-header style="margin: auto;">
-            <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" mat-card-avatar>
-            <mat-card-title >Omar</mat-card-title>
-            <mat-card-subtitle >Admin</mat-card-subtitle>
-          </mat-card-header>
-        </mat-card>
-      </mat-toolbar>
-     <table-component></table-component>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
