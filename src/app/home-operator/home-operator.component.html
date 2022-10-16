@@ -5,8 +5,7 @@
         [opened]="(isHandset$ | async) === false">
       <mat-toolbar>Alexia</mat-toolbar>
       <mat-nav-list>
-        <a mat-list-item autofocus style="background-color:rgb(167, 167, 167)">TeleOperadores</a>
-        <a mat-list-item routerLink="/clientes" >Clientes</a>
+        <a mat-list-item autofocus style="background-color:rgb(167, 167, 167)">Llamadas Recientes</a>
         <a mat-list-item routerLink="/">Salir</a>
       </mat-nav-list>
     </mat-sidenav>
@@ -25,17 +24,17 @@
           <th scope="col">ID</th>
           <th scope="col">NOMBRES</th>
           <th scope="col">APELLIDOS</th>
-          <th scope="col">NIVEL DE EXPERIENCIA</th>
-          <th scope="col">INFORMACIÓN ADICIONAL</th>
-          <th scope="col">ASIGNAR PALABRA CLAVE</th>
+          <th scope="col">PALABRAS CLAVE</th>
+          <th scope="col">DISCURSO</th>
+          <th>ASIGNAR</th>
         </thead>
-        <tr *ngFor="let operator of operators;let i = index" style="margin: auto; padding: auto;border: 1px solid;">
-          <th scope="row">{{i}}</th>
-          <td>{{operator.name}}</td>
-          <td>{{operator.lastName}}</td>
-          <td>{{operator.type}}</td>
-          <td><button class="rounded-pill">Ver más</button></td>
-          <td><button class="rounded-pill">Asignar</button></td>
+        <tr *ngFor="let client of clients;let i = index" style="margin: auto; padding: auto;border: 1px solid;">
+          <th scope="row">{{i+1}}</th>
+          <td>{{client.name}}</td>
+          <td>{{client.lastName}}</td>
+          <td><button class="rounded-pill" (click)="seeKeyWords(client)">Ver Palabras Clave</button></td>
+          <td><button class="rounded-pill" (click)="seeSpeech(client)">Ver Discurso</button></td>
+          <td><button class="rounded-pill" (click)="asignar(client)">Asignar</button></td>
         </tr>
       </table>     
     </mat-sidenav-content>

@@ -13,8 +13,10 @@ import { HomeDashComponent } from './home-dash/home-dash.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { ClientesComponent } from './clientes/clientes.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeOperatorComponent } from './home-operator/home-operator.component';
+import { ClientesAdminComponent } from './clientes-admin/clientes-admin.component';
 
 
 @NgModule({
@@ -26,8 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavBarComponent,
     HomeComponent,
     ClientesComponent,
- 
-
+    HomeOperatorComponent,
+    ClientesAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     FlexLayoutModule,
     AngularMaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],

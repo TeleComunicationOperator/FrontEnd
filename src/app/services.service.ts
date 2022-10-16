@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpErrorResponse} from '@angular/common/http'
 import { Operator } from './models/Operator';
 import { User } from './models/User';
 import { Client } from './models/Client';
+import { KeyWord } from './models/KeyWord';
 const TOKEN_KEY='AuthToken';
 const EMAIL_KEY='AuthUsername';
 const USER_ROLE='AuthUserRoles';
+var error: number | Object | string;
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +17,7 @@ export class ServicesService {
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   Url='http://34.238.36.139/'
   UrlUsers='http://34.238.36.139/users/signup'
+  UrlSpeech='http://34.197.6.89/speech'
 
   constructor(private http:HttpClient) { }
 
@@ -25,18 +28,22 @@ export class ServicesService {
     return false;
   }
   authenticationOperator(email: any,password: any){
-    var flag = this.signin(email,password);
-    if(email.match("grecia@gmail.com") && password=="grecia"){
-      return true;
+    if(this.signin(email,password)==422){
+      return false;
     }
-    if(flag){
+
+    if(this.signin(email,password)){
       return true;
     }
     return false;
   }
 
   signin(email:any,password:any){
-    return this.http.post(this.Url+'users/sigin?email=' + email+'&password='+ password, null);
+     this.http.get(this.Url+'users/signin?email=' + email+'&password='+ password).subscribe((res) => {
+    },(err:HttpErrorResponse)=>{error=err.status;})
+
+    return error;
+      
   }
 
   getOperators(){
@@ -45,6 +52,19 @@ export class ServicesService {
   getClients(){
     return this.http.get<Client[]>(this.Url + "clients");
   }
+
+  getSpeech(file:any){
+    const formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+    return this.http.post<KeyWord>(`http://34.197.6.89/speech`,formData);
+  }
+
+  assignSpeech(id:number,keyWord:KeyWord){
+    console.log("Keyword a Postman",keyWord)
+    return this.http.put(this.Url+"clients/speech/" + id,keyWord)
+  }
+
+
   public createOperator(operator:Operator,user:User){
     this.http.post<User>(this.UrlUsers,user);
     return this.http.post<Operator>(this.Url + "operators",operator);
@@ -90,6 +110,8 @@ export class ServicesService {
     window.sessionStorage.clear();
 
   }
+
+  
 
 
 }
