@@ -3,6 +3,8 @@ export class Client{
     name: string;
     lastName: string;
     speech: string;
+    phone:string;
+    dni:string;
     key: string[];
     constructor(name:string,lastName:string,speech:string,key:string[]){
         this.name=name;

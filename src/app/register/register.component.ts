@@ -28,17 +28,17 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    console.log("name",this.name)
-    console.log("lastName",this.lastName)
-    console.log("dni",this.dni)
-    console.log("phone",this.phone)
-    console.log("email",this.email)
-    console.log("password",this.password)
     this.user=new User(this.name,this.email,this.password,["ROLE_CLIENT"]);
     this.operator=new Operator(this.name,this.lastName,this.dni,"PENDIENTE",this.phone,this.email);
-    this.service.createOperator(this.operator,this.user).subscribe(data=>{
-      alert("Operator creado");
+    this.service.createUser(this.operator,this.user).subscribe(data=>{
+      console.log("usuariocreado",data);
+      alert("Usuario creado");
     })
+    this.service.createOperator(this.operator,this.user).subscribe(data=>{
+      console.log("operadorsito",data)
+      
+    })
+  
     this.router.navigate(['login']);
   }
 

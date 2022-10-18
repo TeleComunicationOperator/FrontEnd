@@ -4,6 +4,8 @@ import { DialogRef } from '@angular/cdk/dialog';
 import { KeyWord } from '../models/KeyWord';
 import { ServicesService } from '../services.service';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SnackBarBadFormatComponent } from '../snack-bar-bad-format/snack-bar-bad-format.component';
+
 @Component({
   selector: 'app-pop-up',
   templateUrl: './pop-up.component.html',
@@ -59,10 +61,7 @@ export class PopUpComponent implements OnInit {
           })
           
       } else {
-        this.snackBar.open('Formato Erroneo', '', {
-          duration: 2000,
-          panelClass: ['red-snackbar'],
-        });
+        this.snackBar.openFromComponent(SnackBarBadFormatComponent,{duration:1000});
       }
 
       

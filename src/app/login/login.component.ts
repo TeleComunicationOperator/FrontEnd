@@ -5,6 +5,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 
 import { SnackBarComponentFail } from '../snack-bar/snack-bar.component';
 import { SnackBarSuccesfullComponent } from '../snack-bar-succesfull/snack-bar-succesfull.component';
+import { Operator } from '../models/Operator';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   email="";
   password="";
   invalidLogin=false;
+  operator:Operator;
   
 
   constructor(private router:Router,public loginService:ServicesService,private snackBar:MatSnackBar) { }
@@ -23,8 +25,6 @@ export class LoginComponent implements OnInit {
   }
 
   register(){
-    console.log("Email",this.email)
-    console.log("pass",this.password)
     if(this.loginService.authentication(this.email,this.password)){
       this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:1000})
       this.router.navigate(['admin']);
@@ -34,6 +34,8 @@ export class LoginComponent implements OnInit {
 
 
     if(this.loginService.authenticationOperator(this.email,this.password)){
+     
+      localStorage.setItem("email",this.email);
       this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:1000})
       this.router.navigate(['teleoperadores']);
       this.invalidLogin=false;

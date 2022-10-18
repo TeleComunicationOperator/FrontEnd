@@ -12,29 +12,30 @@
     <mat-sidenav-content>
       <mat-toolbar style="height: 70px;background-color: white;">
         <span style="justify-content: flex-start;color: black;">Teleoperadores</span>
-        <mat-card style="justify-content: flex-end; margin-left: 83.7%; width: 160px; height: 70px;background-color: #ffffff;" >
-          <mat-card-header style="margin: auto;">
+        <mat-card style="justify-content: flex-end; margin-left: 83.7%; width: 160px; height: 70px;background-color: #ffffff;" (click)="seeProfile()">
+          <mat-card-header  style="margin: auto;">
             <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" mat-card-avatar>
+            <mat-card-title style="color:black;height: 20px;">Omar</mat-card-title>
             <mat-card-subtitle style="color:black">Admin</mat-card-subtitle>
           </mat-card-header>
         </mat-card>
       </mat-toolbar>
       <table class="table">
         <thead>
-          <th scope="col">ID</th>
-          <th scope="col">NOMBRES</th>
-          <th scope="col">APELLIDOS</th>
-          <th scope="col">PALABRAS CLAVE</th>
-          <th scope="col">DISCURSO</th>
-          <th>ASIGNAR</th>
+          <th scope="col" >ID</th>
+          <th scope="col" style="padding-left: 3%;">NOMBRES</th>
+          <th scope="col" style="padding-left: 3%;">APELLIDOS</th>
+          <th scope="col" style="padding-left: 7%;">PALABRAS CLAVE</th>
+          <th scope="col" style="padding-left: 6%;">DISCURSO</th>
+          <th style="padding-left: 6%;">ASIGNAR</th>
         </thead>
-        <tr *ngFor="let client of clients;let i = index" style="margin: auto; padding: auto;border: 1px solid;">
+        <tr *ngFor="let client of clients;let i = index" style="margin: auto; padding: auto;">
           <th scope="row">{{i+1}}</th>
-          <td>{{client.name}}</td>
-          <td>{{client.lastName}}</td>
-          <td><button class="rounded-pill" (click)="seeKeyWords(client)">Ver Palabras Clave</button></td>
-          <td><button class="rounded-pill" (click)="seeSpeech(client)">Ver Discurso</button></td>
-          <td><button class="rounded-pill" (click)="asignar(client)">Asignar</button></td>
+          <td style="padding-left: 3%;">{{client.name}}</td>
+          <td style="padding-left: 3%;">{{client.lastName}}</td>
+          <td style="padding-left: 3%;"><button class="rounded-pill" (click)="seeKeyWords(client)">Ver Palabras Clave</button></td>
+          <td style="padding-right: 0%;"><button class="rounded-pill" (click)="seeSpeech(client)">Ver Discurso</button></td>
+          <td ><button class="rounded-pill" (click)="asignar(client)">Asignar</button></td>
         </tr>
       </table>     
     </mat-sidenav-content>

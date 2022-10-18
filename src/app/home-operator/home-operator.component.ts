@@ -22,6 +22,7 @@ export interface DialogData {
 export class HomeOperatorComponent implements OnInit {
 
   clients:Client[];
+  operator:Operator;
 
   constructor(private router:Router,private breakpointObserver: BreakpointObserver,private service:ServicesService,private popUp:MatDialog) { }
 
@@ -33,13 +34,12 @@ export class HomeOperatorComponent implements OnInit {
   ngOnInit(): void {
     this.service.getClients().subscribe(data=>{
       this.clients=data;
-      console.log("clientes",this.clients)
+      
     })
   }
 
   asignar(client:Client){
-    console.log("clientecompleto",client)
-    console.log("cliente",client.id);
+   
     this.popUp.open(PopUpComponent,{data:client.id});
   }
 
@@ -51,6 +51,17 @@ export class HomeOperatorComponent implements OnInit {
   seeSpeech(client:Client){
     this.popUp.open(PopUpSeeSpeechComponent,{data:client})
 
+  }
+
+  seeProfile(){
+    var email:string | null=localStorage.getItem("email");
+    //this.email=localStorage.getItem("email");
+    console.log("email obtenido",email)
+    this.service.getOperatorById(email).subscribe((data)=>{
+      console.log("datita",data)
+      this.operator=data;
+    });
+    console.log("los datos son",this.operator)
   }
 
 }

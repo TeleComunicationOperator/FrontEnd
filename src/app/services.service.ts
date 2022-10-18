@@ -59,6 +59,11 @@ export class ServicesService {
     return this.http.post<KeyWord>(`http://34.197.6.89/speech`,formData);
   }
 
+  public getOperatorById(email:string | null){
+    return this.http.get<Operator>(this.Url+"operators/email/"+email);
+
+  }
+
   assignSpeech(id:number,keyWord:KeyWord){
     console.log("Keyword a Postman",keyWord)
     return this.http.put(this.Url+"clients/speech/" + id,keyWord)
@@ -66,9 +71,12 @@ export class ServicesService {
 
 
   public createOperator(operator:Operator,user:User){
-    this.http.post<User>(this.UrlUsers,user);
     return this.http.post<Operator>(this.Url + "operators",operator);
-    
+  }
+
+  public createUser(operator:Operator,user:User){
+    user.username=operator.name+"."+operator.lastName;
+    return this.http.post<User>(this.UrlUsers,user);
   }
 
   
