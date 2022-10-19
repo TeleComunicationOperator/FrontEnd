@@ -17,7 +17,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeOperatorComponent } from './home-operator/home-operator.component';
 import { ClientesAdminComponent } from './clientes-admin/clientes-admin.component';
-
+import { PopUpUpdateProfileComponent } from './pop-up-update-profile/pop-up-update-profile.component';
+import { UpdateFormProfileComponent } from './update-form-profile/update-form-profile.component';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ClientesAdminComponent } from './clientes-admin/clientes-admin.componen
     HomeComponent,
     ClientesComponent,
     HomeOperatorComponent,
-    ClientesAdminComponent
+    ClientesAdminComponent,
+    PopUpUpdateProfileComponent,
+    UpdateFormProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import { ClientesAdminComponent } from './clientes-admin/clientes-admin.componen
     FlexLayoutModule,
     AngularMaterialModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent],

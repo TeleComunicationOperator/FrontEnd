@@ -1,0 +1,30 @@
+<mat-card style="width: 500px;">
+    <mat-card-header>
+        <h1 style="padding-left: 37%;font-size: 2.5em;">Perfil</h1>
+        
+    </mat-card-header>
+    <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" alt="" style="border-radius: 50%;height: 250px;width:250px;margin-bottom: 5%;margin-left: 25%;">
+    <mat-card-content>
+        <div style="padding-left:20%;">
+            
+            <label for="" style="padding-left: 30%;font-size: 1.5em;"><strong>Nombre</strong></label>
+            <p style="padding-left: 32%;font-size: 1.25em;">{{operator.name}}</p>
+            <label for="" style="padding-left: 28%;font-size: 1.5em;"><strong>Apellidos</strong></label>
+            <p style="padding-left: 32%;font-size: 1.25em">{{operator.lastName}}</p>
+            <label for="" style="padding-left: 34%;font-size: 1.5em;"><strong>DNI</strong></label>
+            <p style="padding-left: 28%;font-size: 1.25em">{{operator.dni}}</p>
+            <label for="" style="padding-left: 29%;font-size: 1.5em;"><strong>Teléfono</strong></label>
+            <p style="padding-left: 28%;font-size: 1.25em">{{operator.phone}}</p>
+            <label for="" style="padding-left: 32%;font-size: 1.5em;"><strong>Email</strong></label>
+            <p style="font-size: 1.25em;padding-left: 15%;">{{operator.email}}</p>
+            <label for="" style="padding-left: 33%;font-size: 1.5em;"><strong>Tipo</strong></label>
+            <p style="padding-left: 26%;font-size: 1.25em">{{operator.type}}</p>
+            <label for="" style="padding-left: 20%;font-size: 1.5em;"><strong>Palabras Claves</strong></label>
+            <p style="font-size: 1.25em;padding-left: 50%;">{{operator.keyWordList}}</p>
+        </div>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="btn btn-primary" style="margin-left:45%" (click)="updateInfo()">Editar</button>
+    </mat-card-actions>
+</mat-card>

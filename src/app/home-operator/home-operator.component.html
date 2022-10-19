@@ -11,12 +11,12 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <mat-toolbar style="height: 70px;background-color: white;">
-        <span style="justify-content: flex-start;color: black;">Teleoperadores</span>
-        <mat-card style="justify-content: flex-end; margin-left: 83.7%; width: 160px; height: 70px;background-color: #ffffff;" (click)="seeProfile()">
+        <span style="justify-content: flex-start;color: black;">LLamadas Recientes</span>
+        <mat-card style="justify-content: flex-end; margin-left: 79.5%; width: 180px; height: 70px;background-color: #ffffff;" (click)="seeProfile()">
           <mat-card-header  style="margin: auto;">
             <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" mat-card-avatar>
-            <mat-card-title style="color:black;height: 20px;">Omar</mat-card-title>
-            <mat-card-subtitle style="color:black">Admin</mat-card-subtitle>
+            <mat-card-title style="color:black;height: 20px;">{{operator.name}}</mat-card-title>
+            <mat-card-subtitle style="color:black;width: 10px;">Teleoperador</mat-card-subtitle>
           </mat-card-header>
         </mat-card>
       </mat-toolbar>

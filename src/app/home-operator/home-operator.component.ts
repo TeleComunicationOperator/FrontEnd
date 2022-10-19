@@ -10,6 +10,7 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 import {MatDialog} from '@angular/material/dialog';
 import { PopUpSeeSpeechComponent } from '../pop-up-see-speech/pop-up-see-speech.component';
 import { PopUpSeeKeyWordsComponent } from '../pop-up-see-key-words/pop-up-see-key-words.component';
+import { PopUpUpdateProfileComponent } from '../pop-up-update-profile/pop-up-update-profile.component';
 export interface DialogData {
   animal: string;
   name: string;
@@ -34,8 +35,15 @@ export class HomeOperatorComponent implements OnInit {
   ngOnInit(): void {
     this.service.getClients().subscribe(data=>{
       this.clients=data;
-      
     })
+
+    var email:string | null=localStorage.getItem("email");
+    this.service.getOperatorById(email).subscribe((data)=>{
+      console.log("datita",data)
+      this.operator=data;
+    });
+
+    console.log("operador",this.operator)
   }
 
   asignar(client:Client){
@@ -54,14 +62,8 @@ export class HomeOperatorComponent implements OnInit {
   }
 
   seeProfile(){
-    var email:string | null=localStorage.getItem("email");
-    //this.email=localStorage.getItem("email");
-    console.log("email obtenido",email)
-    this.service.getOperatorById(email).subscribe((data)=>{
-      console.log("datita",data)
-      this.operator=data;
-    });
-    console.log("los datos son",this.operator)
+    this.popUp.open(PopUpUpdateProfileComponent);
+    
   }
 
 }

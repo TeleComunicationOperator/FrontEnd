@@ -1,0 +1,47 @@
+<mat-card style="width: 500px;height: 755px;">
+    <mat-card-header>
+        <h1 style="padding-left: 25%;font-size: 2.5em;">Editar Perfil</h1>
+        
+    </mat-card-header>
+    <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" alt="" style="border-radius: 50%;height: 250px;width:250px;margin-bottom: 7%;margin-left: 25%;">
+    <mat-card-content>
+        <div >
+            <div style="width: 100%;">
+                
+                <label for="" style="margin-left: 16%"><strong>Nombres:</strong></label>
+                <input  [placeholder]=operator.name [(ngModel)]="nombres" style="margin-left: 19.7%;margin-bottom: 4%;" >
+            </div>
+
+            <div style="width: 100%;">
+                <label for="" style="margin-left: 16%"><strong>Apellidos:</strong></label>
+                <input  [placeholder]=operator.lastName [(ngModel)]="apellidos"  style="margin-left: 19.5%;margin-bottom: 4%;">
+            </div>
+
+            <div style="width: 100%;">
+                <label for="" style="margin-left: 16%"><strong>DNI:</strong></label>
+                <input  [placeholder]=operator.dni [(ngModel)]="dni" style="margin-left: 27%;margin-bottom: 4%;">
+            </div>
+
+            <div style="width: 100%;">
+                <label for="" style="margin-left: 16%"><strong>Teléfono:</strong></label>
+                <input  [placeholder]=operator.phone [(ngModel)]="telefono" style="margin-left: 20%;margin-bottom: 4%;">
+            </div>
+
+            <div style="width: 100%;">
+                <label for="" style="margin-left: 16%"><strong>Email:</strong></label>
+                <input  [placeholder]=operator.email [(ngModel)]="email" style="margin-left: 24.5%;margin-bottom: 4%;">
+            </div>
+
+            <div style="width: 100%;">
+                <label for="" style="margin-left: 16%"><strong>Contraseña:</strong></label>
+                <input  placeholder="contraseñaxd" type="password" [(ngModel)]="contrasenia" style="margin-left: 16.5%;margin-bottom: 2%;">
+            </div> 
+        
+        </div>
+       
+    </mat-card-content>
+    <mat-card-actions>
+        <button class="btn btn-primary" style="margin-left:35%;margin-top:5%" (click)="saveChanges()">Guardar Cambios</button>
+    </mat-card-actions>
+</mat-card>
+

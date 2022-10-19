@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { Operator } from '../models/Operator';
 import { ServicesService } from '../services.service';
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-home',
@@ -14,6 +15,7 @@ import { ServicesService } from '../services.service';
 export class HomeComponent implements OnInit {
 
   operators:Operator[];
+  user:User;
   constructor(private router:Router,private breakpointObserver: BreakpointObserver,private service:ServicesService) { }
 
   titulo="Home"
@@ -21,6 +23,8 @@ export class HomeComponent implements OnInit {
     this.service.getOperators().subscribe(data=>{
       this.operators=data;
     })
+
+    
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

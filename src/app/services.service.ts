@@ -13,6 +13,7 @@ var error: number | Object | string;
 })
 export class ServicesService {
 
+  operator:Operator;
   roles:Array<string>=[];
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   Url='http://34.238.36.139/'
@@ -42,10 +43,26 @@ export class ServicesService {
      this.http.get(this.Url+'users/signin?email=' + email+'&password='+ password).subscribe((res) => {
     },(err:HttpErrorResponse)=>{error=err.status;})
 
+    console.log("este es error?",error)
+
     return error;
       
   }
+  public updateOperator(operator:Operator){
 
+    console.log("operator que paso",operator)
+
+    
+    this.getOperatorById(operator.email).subscribe((data)=>{
+      this.operator=data;
+      console.log("operator que obtengo",this.operator)
+      //return this.http.put<Operator>(this.Url+"operators");
+    })
+
+    console.log("operator que obtengo",this.operator)
+
+
+  }
   getOperators(){
     return this.http.get<Operator[]>(this.Url + "operators");
   }
