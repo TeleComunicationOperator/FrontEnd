@@ -24,34 +24,16 @@ export class PopUpComponent implements OnInit {
   }
 
   asignar(){
+   
     
    
   }
 
    async uploadFile($event: any) {
+    console.log("dataCliente",this.data)
     let selectedFile = $event.target.files[0];
     if (selectedFile != null) {
       if (selectedFile.name.includes('.mp3')) {
-        /*this.polliticalPartyService
-          .validatePoliticalParty(selectedFile)
-          .subscribe(
-            (response: any) => {
-              console.log(response);
-            },
-            (err) => {
-              if (err.status == 200) {
-                this.polliticalPartyService
-                  .updateValidation(this.partido.id!, err.error.text)
-                  .subscribe((resp) => {
-                    this.snackBar.open('Validado correctamente', '', {
-                      duration: 2000,
-                      panelClass: ['green-snackbar'],
-                    });
-                    this.dialogRef.close();
-                  });
-              }
-            }
-          );*/
           this.service.getSpeech(selectedFile).subscribe(data2=>{
             this.keyWord=data2;
             console.log("data",data2)

@@ -47,4 +47,8 @@ export class ClientesAdminComponent implements OnInit {
 
   }
 
+  public logOut(){
+    localStorage.clear();
+  }
+
 }

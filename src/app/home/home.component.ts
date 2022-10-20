@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import { Operator } from '../models/Operator';
 import { ServicesService } from '../services.service';
 import { User } from '../models/User';
+import { MatDialog } from '@angular/material/dialog';
+import { SeeOperatorInformationComponent } from '../see-operator-information/see-operator-information.component';
 
 @Component({
   selector: 'app-home',
@@ -15,16 +17,22 @@ import { User } from '../models/User';
 export class HomeComponent implements OnInit {
 
   operators:Operator[];
+  operator:Operator;
   user:User;
-  constructor(private router:Router,private breakpointObserver: BreakpointObserver,private service:ServicesService) { }
+  constructor(private router:Router,private breakpointObserver: BreakpointObserver,private service:ServicesService,private popup:MatDialog) { }
 
   titulo="Home"
   ngOnInit(): void {
+    
     this.service.getOperators().subscribe(data=>{
       this.operators=data;
     })
 
-    
+    var email:string | null=localStorage.getItem("email");
+    this.service.getOperatorById(email).subscribe((data)=>{
+      console.log("datita",data)
+      this.operator=data;
+    });
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -33,6 +41,16 @@ export class HomeComponent implements OnInit {
       shareReplay()
     );
 
+
+    public seeMoreInfo(operator:Operator){
+      console.log("verdaderadata",operator)
+      this.popup.open(SeeOperatorInformationComponent,{data:operator});
+      
+    }
+
+    public logOut(){
+      localStorage.clear();
+    }
 
   
 

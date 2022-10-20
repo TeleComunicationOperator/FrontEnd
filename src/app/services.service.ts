@@ -28,24 +28,24 @@ export class ServicesService {
     }
     return false;
   }
-  authenticationOperator(email: any,password: any){
-    if(this.signin(email,password)==422){
+   authenticationOperator(email: any,password: any){
+    if( this.signin(email,password)==422){
       return false;
     }
 
-    if(this.signin(email,password)){
+    if( this.signin(email,password)){
       return true;
     }
     return false;
   }
 
-  signin(email:any,password:any){
+   signin(email:any,password:any){
      this.http.get(this.Url+'users/signin?email=' + email+'&password='+ password).subscribe((res) => {
     },(err:HttpErrorResponse)=>{error=err.status;})
 
     console.log("este es error?",error)
 
-    return error;
+    return  error;
       
   }
   public updateOperator(operator:Operator){

@@ -66,4 +66,8 @@ export class HomeOperatorComponent implements OnInit {
     
   }
 
+  public logOut(){
+    localStorage.clear();
+  }
+
 }

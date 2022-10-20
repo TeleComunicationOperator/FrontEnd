@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Operator } from '../models/Operator';
 import { User } from '../models/User';
@@ -22,7 +23,7 @@ export class RegisterComponent implements OnInit {
   password='';
 
   Roles: any = ['Admin', 'Author', 'Reader'];
-  constructor(private service:ServicesService,private router:Router) { }
+  constructor(private service:ServicesService,private router:Router,private snackBar:MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -32,14 +33,15 @@ export class RegisterComponent implements OnInit {
     this.operator=new Operator(this.name,this.lastName,this.dni,"PENDIENTE",this.phone,this.email);
     this.service.createUser(this.operator,this.user).subscribe(data=>{
       console.log("usuariocreado",data);
-      alert("Usuario creado");
+      
     })
     this.service.createOperator(this.operator,this.user).subscribe(data=>{
       console.log("operadorsito",data)
+      this.snackBar.open("Operador creado n.n!",'',{duration:2000,panelClass:'alert-green'})
       
     })
   
-    this.router.navigate(['login']);
+    this.router.navigate(['home']);
   }
 
 }

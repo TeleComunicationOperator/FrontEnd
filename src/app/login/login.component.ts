@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   password="";
   invalidLogin=false;
   operator:Operator;
+  logged:boolean=false;
   
 
   constructor(private router:Router,public loginService:ServicesService,private snackBar:MatSnackBar) { }
@@ -24,25 +25,37 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  register(){
-    if(this.loginService.authentication(this.email,this.password)){
-      this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:1000})
-      this.router.navigate(['admin']);
-      this.invalidLogin=false;
-      return ;
-    }
+  async register(){
 
+    this.logged=await this.loginService.authenticationOperator(this.email,this.password);
 
-    if(this.loginService.authenticationOperator(this.email,this.password)){
-     
-      localStorage.setItem("email",this.email);
-      this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:1000})
-      this.router.navigate(['teleoperadores']);
-      this.invalidLogin=false;
-      return ;
-    }
+    setTimeout(()=>{
+
+      if(this.loginService.authentication(this.email,this.password)){
+        this.snackBar.open("¡Logueado satisfactoriamente! :)",'',{duration:2000,panelClass:'alert-green'})
+        this.router.navigate(['admin']);
+        this.invalidLogin=false;
+        return ;
+      }
+  
+  
+      if(this.logged){
+       console.log("entra 1")
+        localStorage.setItem("email",this.email);
+        this.snackBar.open("¡Logueado satisfactoriamente! :)",'',{duration:2000,panelClass:'alert-green'})
+        this.router.navigate(['teleoperadores']);
+        this.invalidLogin=false;
+        return ;
+      }
+  
+      console.log("entra 2");
+      
+      this.snackBar.open("Credenciales incorrectas :(",'',{duration:2000,panelClass:'alert-red'})
+
+    },2000)
+   
+   
     
-    this.snackBar.openFromComponent(SnackBarComponentFail,{duration:1000})
     
     
     this.invalidLogin=true;

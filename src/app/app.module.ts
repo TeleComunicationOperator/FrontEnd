@@ -20,6 +20,8 @@ import { ClientesAdminComponent } from './clientes-admin/clientes-admin.componen
 import { PopUpUpdateProfileComponent } from './pop-up-update-profile/pop-up-update-profile.component';
 import { UpdateFormProfileComponent } from './update-form-profile/update-form-profile.component';
 import {MatInputModule} from '@angular/material/input';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SeeOperatorInformationComponent } from './see-operator-information/see-operator-information.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import {MatInputModule} from '@angular/material/input';
     HomeOperatorComponent,
     ClientesAdminComponent,
     PopUpUpdateProfileComponent,
-    UpdateFormProfileComponent
+    UpdateFormProfileComponent,
+    LandingPageComponent,
+    SeeOperatorInformationComponent
   ],
   imports: [
     BrowserModule,
