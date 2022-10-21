@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
   public preRegister(){
     this.loginService.getOperatorByEmail(this.email).subscribe((data)=>{
-      console.log("datita",data)
       this.operator=data;
     })
 
@@ -35,32 +34,29 @@ export class LoginComponent implements OnInit {
 
   }
   register(){
-
-   
+    this.loginService.authenticationOperator(this.email,this.password).subscribe((res)=>{
+      if(res.length>0){
+        localStorage.setItem("email",this.email);
+        this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:2000,panelClass:'alert-green'})
+        this.router.navigate(['teleoperadores']);
+        this.invalidLogin=false;
+        return;
+      }
+   },
+   (err) => {
+    if(err.status==422){
+      this.snackBar.openFromComponent(SnackBarComponentFail,{duration:2000,panelClass:'alert-red'})
+      this.invalidLogin=true;
+      return;
+    }
+   })
      if(this.loginService.authentication(this.email,this.password)){
        this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:2000,panelClass:'alert-green'})
        this.router.navigate(['admin']);
        this.invalidLogin=false;
        return ;
      }
-
-     if(this.loginService.authenticationOperator(this.email,this.password)){
-       console.log("dato entrante",this.loginService.getOperatorByEmail(this.email))
-       console.log("entra");
-       localStorage.setItem("email",this.email);
-       this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:2000,panelClass:'alert-green'})
-       this.router.navigate(['teleoperadores']);
-       this.invalidLogin=false;
-       
-       return;
-     }
      
-     console.log("operador?",this.operator)
- 
-     console.log("entra 2");
-     this.snackBar.openFromComponent(SnackBarComponentFail,{duration:2000,panelClass:'alert-red'})
-     this.invalidLogin=true;
-     return;
    
  }
 
