@@ -22,6 +22,7 @@ import { UpdateFormProfileComponent } from './update-form-profile/update-form-pr
 import {MatInputModule} from '@angular/material/input';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SeeOperatorInformationComponent } from './see-operator-information/see-operator-information.component';
+import { SeeClientInfoComponent } from './see-client-info/see-client-info.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SeeOperatorInformationComponent } from './see-operator-information/see-
     PopUpUpdateProfileComponent,
     UpdateFormProfileComponent,
     LandingPageComponent,
-    SeeOperatorInformationComponent
+    SeeOperatorInformationComponent,
+    SeeClientInfoComponent
   ],
   imports: [
     BrowserModule,

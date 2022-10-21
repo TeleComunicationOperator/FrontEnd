@@ -11,6 +11,7 @@
       <mat-nav-list>
         <a mat-list-item routerLink="/admin"><span style="font-size:30px;margin-right: 8%;padding-left: 3%;"><i class="bi bi-headset"></i></span><strong>Teleoperadores</strong></a>
         <a mat-list-item autofus style="background-color:rgb(167, 167, 167)"><span style="font-size:30px;margin-right: 8%;padding-left: 3%;"><i class="bi bi-people"></i></span><strong>Clientes</strong></a>
+        <a mat-list-item routerLink="/keywordsadmin"> <span style="font-size: 30px;padding-left: 3%;margin-right: 6%;"><i class="bi bi-key"></i></span><strong>Palabras Clave Teleoperador</strong></a>
         <a mat-list-item routerLink="/" style="margin-top: 360%;" (click)="logOut()"><span style="font-size:30px;margin-right: 8%;padding-left: 3%;"><i class="bi bi-power"></i></span><strong>Salir</strong></a>
       </mat-nav-list>
     </mat-sidenav>
@@ -35,6 +36,7 @@
           <th scope="col" style="padding-left: 11%;">TELÉFONO</th>
           <th scope="col" style="padding-left: 17.5%;">KEYWORDS</th>
           <th scope="col" style="padding-left: 14%;">DISCURSO</th>
+          <!--<th style="padding-left: 9%;">INFORMACIÓN</th>-->
         </thead>
         <tr *ngFor="let client of clients;let i = index">
           <th scope="row" style="padding-right: 3%;">{{i+1}}</th>
@@ -44,6 +46,7 @@
           <td style="padding-left: 11%;">{{client.phone}}</td>
           <td style="padding-left: 12%;"><button class="rounded-pill" (click)="seeKeyWords(client)">Ver Palabras Clave</button></td>
           <td style="padding-left: 8%;"><button class="rounded-pill" (click)="seeSpeech(client)">Ver Speech</button></td>
+          <!--<td  style="padding-left:4%"><button class="rounded-pill" (click)="seeInfoClient(client)">Ver más</button></td>-->
         </tr>
       </table>     
     </mat-sidenav-content>

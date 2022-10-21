@@ -53,7 +53,7 @@ export class ServicesService {
     console.log("operator que paso",operator)
 
     
-    this.getOperatorById(operator.email).subscribe((data)=>{
+    this.getOperatorByEmail(operator.email).subscribe((data)=>{
       this.operator=data;
       console.log("operator que obtengo",this.operator)
       //return this.http.put<Operator>(this.Url+"operators");
@@ -76,9 +76,8 @@ export class ServicesService {
     return this.http.post<KeyWord>(`http://34.197.6.89/speech`,formData);
   }
 
-  public getOperatorById(email:string | null){
+  public getOperatorByEmail(email:string | null){
     return this.http.get<Operator>(this.Url+"operators/email/"+email);
-
   }
 
   assignSpeech(id:number,keyWord:KeyWord){

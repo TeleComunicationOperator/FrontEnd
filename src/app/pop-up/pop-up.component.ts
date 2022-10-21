@@ -43,7 +43,7 @@ export class PopUpComponent implements OnInit {
           })
           
       } else {
-        this.snackBar.openFromComponent(SnackBarBadFormatComponent,{duration:1000});
+        this.snackBar.openFromComponent(SnackBarBadFormatComponent,{duration:2000,panelClass:'alert-red'});
       }
 
       

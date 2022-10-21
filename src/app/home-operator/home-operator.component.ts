@@ -11,6 +11,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { PopUpSeeSpeechComponent } from '../pop-up-see-speech/pop-up-see-speech.component';
 import { PopUpSeeKeyWordsComponent } from '../pop-up-see-key-words/pop-up-see-key-words.component';
 import { PopUpUpdateProfileComponent } from '../pop-up-update-profile/pop-up-update-profile.component';
+import { SeeClientInfoComponent } from '../see-client-info/see-client-info.component';
 export interface DialogData {
   animal: string;
   name: string;
@@ -38,8 +39,7 @@ export class HomeOperatorComponent implements OnInit {
     })
 
     var email:string | null=localStorage.getItem("email");
-    this.service.getOperatorById(email).subscribe((data)=>{
-      console.log("datita",data)
+    this.service.getOperatorByEmail(email).subscribe((data)=>{
       this.operator=data;
     });
 
@@ -68,6 +68,10 @@ export class HomeOperatorComponent implements OnInit {
 
   public logOut(){
     localStorage.clear();
+  }
+
+  public seeInfoClient(client:Client){
+    this.popUp.open(SeeClientInfoComponent,{data:client})
   }
 
 }

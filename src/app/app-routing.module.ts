@@ -5,6 +5,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { HomeDashComponent } from './home-dash/home-dash.component';
 import { HomeOperatorComponent } from './home-operator/home-operator.component';
 import { HomeComponent } from './home/home.component';
+import { KeyWordsAdminComponent } from './key-words-admin/key-words-admin.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path:'teleoperadores',component:HomeOperatorComponent},
   {path:'home',component:LandingPageComponent},
   {path:'',redirectTo:'/home',pathMatch:'full'},
-  {path:'clientes',component:ClientesComponent}
+  {path:'clientes',component:ClientesComponent},
+  {path:'keywordsadmin',component:KeyWordsAdminComponent}
   
 ];
 

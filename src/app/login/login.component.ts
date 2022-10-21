@@ -25,42 +25,43 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async register(){
+  public preRegister(){
+    this.loginService.getOperatorByEmail(this.email).subscribe((data)=>{
+      console.log("datita",data)
+      this.operator=data;
+    })
 
-    this.logged=await this.loginService.authenticationOperator(this.email,this.password);
+    this.register();
 
-    setTimeout(()=>{
-
-      if(this.loginService.authentication(this.email,this.password)){
-        this.snackBar.open("¡Logueado satisfactoriamente! :)",'',{duration:2000,panelClass:'alert-green'})
-        this.router.navigate(['admin']);
-        this.invalidLogin=false;
-        return ;
-      }
-  
-  
-      if(this.logged){
-       console.log("entra 1")
-        localStorage.setItem("email",this.email);
-        this.snackBar.open("¡Logueado satisfactoriamente! :)",'',{duration:2000,panelClass:'alert-green'})
-        this.router.navigate(['teleoperadores']);
-        this.invalidLogin=false;
-        return ;
-      }
-  
-      console.log("entra 2");
-      
-      this.snackBar.open("Credenciales incorrectas :(",'',{duration:2000,panelClass:'alert-red'})
-
-    },2000)
-   
-   
-    
-    
-    
-    this.invalidLogin=true;
-    return ;
-    
   }
+  register(){
+
+   
+     if(this.loginService.authentication(this.email,this.password)){
+       this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:2000,panelClass:'alert-green'})
+       this.router.navigate(['admin']);
+       this.invalidLogin=false;
+       return ;
+     }
+
+     if(this.operator!=null){
+       console.log("dato entrante",this.loginService.getOperatorByEmail(this.email))
+       console.log("entra");
+       localStorage.setItem("email",this.email);
+       this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:2000,panelClass:'alert-green'})
+       this.router.navigate(['teleoperadores']);
+       this.invalidLogin=false;
+       
+       return;
+     }
+     
+     console.log("operador?",this.operator)
+ 
+     console.log("entra 2");
+     this.snackBar.openFromComponent(SnackBarComponentFail,{duration:2000,panelClass:'alert-red'})
+     this.invalidLogin=true;
+     return;
+   
+ }
 
 }

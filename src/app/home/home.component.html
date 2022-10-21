@@ -11,6 +11,7 @@
       <mat-nav-list>
         <a mat-list-item autofocus style="background-color:rgb(167, 167, 167)" routerLink="/admin"><span style="font-size:30px;margin-right: 8%;padding-left: 3%;"><i class="bi bi-headset"></i></span><strong>Teleoperadores</strong></a>
         <a mat-list-item routerLink="/clientesadmin" ><span style="font-size:30px;margin-right: 8%;padding-left: 3%;"><i class="bi bi-people"></i></span><strong>Clientes</strong></a>
+        <a mat-list-item routerLink="/keywordsadmin"> <span style="font-size: 30px;padding-left: 3%;margin-right: 6%;"><i class="bi bi-key"></i></span><strong>Palabras Clave Teleoperador</strong></a>
         <a mat-list-item routerLink="/" style="margin-top: 360%;" (click)="logOut()"><span style="font-size:30px;margin-right: 8%;padding-left: 3%;"><i class="bi bi-power"></i></span><strong>Salir</strong></a>
       </mat-nav-list>
     </mat-sidenav>
@@ -30,7 +31,7 @@
           <th scope="col" class="headersTable">ID</th>
           <th scope="col" class="headersTable" style="padding-left: 3%;">NOMBRES</th>
           <th scope="col" class="headersTable" style="padding-left: 3%;">APELLIDOS</th>
-          <th scope="col" class="headersTable" style="padding-left: 3%;">NIVEL DE EXPERIENCIA</th>
+          <th scope="col" class="headersTable" style="padding-left: 4.5%;">NIVEL DE EXPERIENCIA</th>
           <th scope="col" class="headersTable" style="padding-left: 3%;">INFORMACIÓN ADICIONAL</th>
           <th scope="col" class="headersTable" style="padding-left: 3%;">ASIGNAR PALABRA CLAVE</th>
         </thead>
@@ -38,7 +39,9 @@
           <th scope="row">{{i+1}}</th>
           <td style="padding-left: 3%;">{{operator.name}}</td>
           <td style="padding-left: 3%;">{{operator.lastName}}</td>
-          <td style="padding-left: 6%;">{{operator.type}}</td>
+          <td style="padding-left: 6%;" *ngIf="operator.type=='PENDIENTE'"><button type="button" class="btn btn-warning" style="background-color: orange;color: white;">¡{{operator.type}}!</button></td>
+          <td style="padding-left: 6%;" *ngIf="operator.type=='NOVATO'"><button type="button" class="btn" style="background-color: aqua;color: white;">{{operator.type}}</button></td>
+          <td style="padding-left: 6%;" *ngIf="operator.type=='EXPERTO'"><button type="button" class="btn" style="background-color: blue;color: white;">{{operator.type}}</button></td>
           <td style="padding-left: 0.7%;"><button class="rounded-pill" (click)="seeMoreInfo(operator)">Ver más</button></td>
           <td style="padding-left: 1%;"><button class="rounded-pill">Asignar</button></td>
         </tr>

@@ -29,8 +29,7 @@ export class HomeComponent implements OnInit {
     })
 
     var email:string | null=localStorage.getItem("email");
-    this.service.getOperatorById(email).subscribe((data)=>{
-      console.log("datita",data)
+    this.service.getOperatorByEmail(email).subscribe((data)=>{
       this.operator=data;
     });
   }

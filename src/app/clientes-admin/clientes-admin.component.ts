@@ -7,6 +7,7 @@ import { Client } from '../models/Client';
 import { PopUpSeeKeyWordsComponent } from '../pop-up-see-key-words/pop-up-see-key-words.component';
 import { PopUpSeeSpeechComponent } from '../pop-up-see-speech/pop-up-see-speech.component';
 import { PopUpComponent } from '../pop-up/pop-up.component';
+import { SeeClientInfoComponent } from '../see-client-info/see-client-info.component';
 import { ServicesService } from '../services.service';
 
 @Component({
@@ -45,6 +46,9 @@ export class ClientesAdminComponent implements OnInit {
   seeSpeech(client:Client){
     this.popUp.open(PopUpSeeSpeechComponent,{data:client})
 
+  }
+  public seeInfoClient(client:Client){
+    this.popUp.open(SeeClientInfoComponent,{data:client})
   }
 
   public logOut(){
