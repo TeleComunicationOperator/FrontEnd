@@ -4,10 +4,10 @@ import { Operator } from './models/Operator';
 import { User } from './models/User';
 import { Client } from './models/Client';
 import { KeyWord } from './models/KeyWord';
+import { Token } from '@angular/compiler';
 const TOKEN_KEY='AuthToken';
 const EMAIL_KEY='AuthUsername';
 const USER_ROLE='AuthUserRoles';
-var error: number | Object | string;
 @Injectable({
   providedIn: 'root'
 })
@@ -20,6 +20,7 @@ export class ServicesService {
   Url='http://34.238.36.139/'
   UrlUsers='http://34.238.36.139/users/signup'
   UrlSpeech='http://34.197.6.89/speech'
+  token: string;
 
   constructor(private http:HttpClient) { }
 
@@ -30,24 +31,12 @@ export class ServicesService {
     return false;
   }
    authenticationOperator(email: any,password: any){
-    if( this.signin(email,password)==422){
-      return false;
-    }
-
-    if( this.signin(email,password)){
-      return true;
-    }
-    return false;
+     return this.signin(email,password)
+     
   }
 
    signin(email:any,password:any){
-     this.http.get(this.Url+'users/signin?email=' + email+'&password='+ password).subscribe((res) => {
-    },(err:HttpErrorResponse)=>{error=err.status;})
-
-    console.log("este es error?",error)
-
-    return  error;
-      
+     return this.http.get(this.Url+'users/signin?email=' + email+'&password='+ password,{responseType:'text'})
   }
   public updateOperator(operator:Operator){
 

@@ -17,7 +17,6 @@ export class PopUpUpdateProfileComponent implements OnInit {
   ngOnInit(): void {
     var email:string | null=localStorage.getItem("email");
     this.service.getOperatorByEmail(email).subscribe((data)=>{
-      console.log("datita",data)
       this.operator=data;
     });
   }
