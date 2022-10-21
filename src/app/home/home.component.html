@@ -39,9 +39,9 @@
           <th scope="row">{{i+1}}</th>
           <td style="padding-left: 3%;">{{operator.name}}</td>
           <td style="padding-left: 3%;">{{operator.lastName}}</td>
-          <td style="padding-left: 6%;" *ngIf="operator.type=='PENDIENTE'"><button type="button" class="btn btn-warning" style="background-color: orange;color: white;">¡{{operator.type}}!</button></td>
-          <td style="padding-left: 6%;" *ngIf="operator.type=='NOVATO'"><button type="button" class="btn" style="background-color: aqua;color: white;">{{operator.type}}</button></td>
-          <td style="padding-left: 6%;" *ngIf="operator.type=='EXPERTO'"><button type="button" class="btn" style="background-color: blue;color: white;">{{operator.type}}</button></td>
+          <td style="padding-left: 5%;" *ngIf="operator.type=='PENDIENTE'"><button type="button" class="btn btn-warning" style="background-color: orange;color: white; width: 130px; opacity: 80%;" (click)="changeType(operator)">¡{{operator.type}}!</button></td>
+          <td style="padding-left: 5%;" *ngIf="operator.type=='NOVATO'"><button type="button" class="btn" style="background-color: teal;color: white; width: 130px; opacity: 80%;" (click)="changeType(operator)">{{operator.type}}</button></td>
+          <td style="padding-left: 5%;" *ngIf="operator.type=='EXPERTO'"><button type="button" class="btn" style="background-color: blue;color: white; width: 130px;" (click)="changeType(operator)">{{operator.type}}</button></td>
           <td style="padding-left: 0.7%;"><button class="rounded-pill" (click)="seeMoreInfo(operator)">Ver más</button></td>
           <td style="padding-left: 1%;"><button class="rounded-pill">Asignar</button></td>
         </tr>

@@ -47,6 +47,13 @@ export class HomeComponent implements OnInit {
       
     }
 
+    public changeType(operator:Operator){
+      console.log("operador",operator)
+
+      return this.service.changeOperatorType(operator);
+
+    }
+
     public logOut(){
       localStorage.clear();
     }

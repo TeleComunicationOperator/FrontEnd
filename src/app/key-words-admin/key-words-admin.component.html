@@ -37,8 +37,8 @@
         <tr *ngFor="let key of keywords" >
             <th scope="row" style="padding-right: 3%;">00{{key.id}}</th>
             <td style="padding-left: 15%;">{{key.name}}</td>
-            <td *ngIf="key.active==true"><button class="btn" style="background-color: #3CFF33;width: 100px;">Activo</button></td>
-            <td *ngIf="key.active==false"><button class="btn" style="background-color: red; width: 100px;">Inactivo</button></td>
+            <td *ngIf="key.active==true"><button mat-raised-button class="btn" style="background-color: #3CFF33;width: 100px;color: black;" (click)="changeToInactive(key)">Activo</button></td>
+            <td *ngIf="key.active==false"><button mat-stroked-button class="btn" style="background-color: red; width: 100px;color: white;opacity: 60%;" (click)="changeToActive(key)">Inactivo</button></td>
         </tr>
       </table>     
     </mat-sidenav-content>

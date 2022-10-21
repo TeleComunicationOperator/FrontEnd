@@ -15,6 +15,7 @@ export class ServicesService {
 
   operator:Operator;
   roles:Array<string>=[];
+  keyword:KeyWord;
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
   Url='http://34.238.36.139/'
   UrlUsers='http://34.238.36.139/users/signup'
@@ -52,17 +53,13 @@ export class ServicesService {
 
     console.log("operator que paso",operator)
 
-    
-    this.getOperatorByEmail(operator.email).subscribe((data)=>{
-      this.operator=data;
-      console.log("operator que obtengo",this.operator)
-      //return this.http.put<Operator>(this.Url+"operators");
-    })
-
-    console.log("operator que obtengo",this.operator)
+  }
+  public updateUser(user:User){
 
 
   }
+
+  
   getOperators(){
     return this.http.get<Operator[]>(this.Url + "operators");
   }
@@ -97,6 +94,43 @@ export class ServicesService {
   public createUser(operator:Operator,user:User){
     user.username=operator.name+"."+operator.lastName;
     return this.http.post<User>(this.UrlUsers,user);
+  }
+
+  public changeKeyStatus(keyword:KeyWord){
+    this.keyword=keyword
+    console.log("url",this.Url+"keys"+"/"+keyword.id)
+    if(keyword.active==true) {
+      this.keyword.active=false;
+      console.log("llavesitaApasar",this.keyword)
+      //console.log("response",this.http.put<KeyWord>(this.Url+"keys"+keyword.id,this.keyword))
+      return this.http.put<KeyWord>(this.Url+"keys/"+keyword.id,this.keyword).subscribe();
+    }
+
+    if(keyword.active==false) {
+      this.keyword.active=true;
+      console.log("llavesitaApasar",this.keyword)
+      return this.http.put<KeyWord>(this.Url+"keys/"+keyword.id,this.keyword).subscribe();
+    }
+    return;
+  }
+
+  public changeOperatorType(operator:Operator){
+    if(operator.type=="PENDIENTE"){
+      operator.type="NOVATO";
+      return this.http.put<Operator>(this.Url+"operators/"+operator.id,operator).subscribe();
+    }
+    
+    if(operator.type=="NOVATO"){
+      operator.type="EXPERTO";
+      return this.http.put<Operator>(this.Url+"operators/"+operator.id,operator).subscribe();
+    }
+
+    if(operator.type=="EXPERTO"){
+      operator.type="NOVATO";
+      return this.http.put<Operator>(this.Url+"operators/"+operator.id,operator).subscribe();
+    }
+
+    return;
   }
 
   

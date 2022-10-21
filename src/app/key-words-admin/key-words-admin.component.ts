@@ -32,4 +32,15 @@ export class KeyWordsAdminComponent implements OnInit {
     localStorage.clear();
   }
 
+  public changeToInactive(key:KeyWord){
+    console.log("llavesitaInactiva",key)
+    this.service.changeKeyStatus(key);
+
+  }
+  public changeToActive(key:KeyWord){
+    console.log("llavesitaActiva",key)
+    this.service.changeKeyStatus(key);
+
+  }
+
 }
