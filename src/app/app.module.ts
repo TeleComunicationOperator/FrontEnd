@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SeeOperatorInformationComponent } from './see-operator-information/see-operator-information.component';
 import { SeeClientInfoComponent } from './see-client-info/see-client-info.component';
+import { KeyWordsAdminComponent } from './key-words-admin/key-words-admin.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SeeClientInfoComponent } from './see-client-info/see-client-info.compon
     UpdateFormProfileComponent,
     LandingPageComponent,
     SeeOperatorInformationComponent,
-    SeeClientInfoComponent
+    SeeClientInfoComponent,
+    KeyWordsAdminComponent
   ],
   imports: [
     BrowserModule,

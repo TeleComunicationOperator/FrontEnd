@@ -1,5 +1,6 @@
 export class KeyWord{
-    speech:string;
-    key:string[];
+    id:number;
+    name:string;
+    active:boolean;
     
 }

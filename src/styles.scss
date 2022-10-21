@@ -9,7 +9,7 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   min-height: 100vh;
-  background-image: radial-gradient(circle at 50% -20.71%, #fd65ff 0, #dc52fd 25%, #b53cf2 50%, #8928e7 75%, #581ddf 100%);
+  
 }
 
 .app-header {
@@ -56,7 +56,7 @@ body {
   z-index: -1;
 }
 .sign:hover{
-  color:gray;
+  color:white;
 }
 .box:before {
   content: "";
@@ -94,22 +94,20 @@ body {
   color: green;
 }
 
-.btn-block:hover{
-  color:gray;
-  border-color:red;
-  background-color: #581ddf;
+
+
+.btn-block{
+  background-color: #3804fc;
+  color: white;
 }
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; }
-input:focus::-moz-placeholder { color:transparent; }
-input:focus:-ms-input-placeholder { color:transparent; }
+
 .sign{
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: #fff;
-  margin-left: 35%;
+  margin-left: 25%;
 }
 
 .login-wrapper mat-card-header {
@@ -131,7 +129,7 @@ input:focus:-ms-input-placeholder { color:transparent; }
 .login-wrapper .mat-stroked-button {
   border: 1px solid currentColor;
   line-height: 54px;
-  background: #FFF7FA;
+ 
 }
 
 .login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {

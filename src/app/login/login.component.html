@@ -1,29 +1,32 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
-    <mat-card class="box">
-      <mat-card-header>
-        <mat-card-title>TeleOperadores</mat-card-title>
-      </mat-card-header>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   
-      <form class="example-form">
-        <mat-card-content>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" class="inputs" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width"> 
-            <input matInput placeholder="Password" class="inputs" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password">
-          </mat-form-field>
-        </mat-card-content>
-        <button mat-stroked-button color="accent" class="btn-block" (click)="preRegister()">Ingresar</button>
-      
-          <a routerLink="/register" href="" class="sign">¡Crea tu cuenta!
-            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-          </a>
-       
-       
-      </form>
-    </mat-card>
-  
-  </div>
-  <router-outlet></router-outlet>
+
+  <mat-card class="box" style="opacity: 100%;z-index:1">
+    <mat-card-header>
+      <img src="../../assets/logo.png" alt="">
+    </mat-card-header>
+
+    <form class="example-form">
+      <mat-card-content>
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Email" class="inputs" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width"> 
+          <input matInput placeholder="Password" class="inputs" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password">
+        </mat-form-field>
+      </mat-card-content>
+      <button mat-stroked-button  class="btn-block" (click)="preRegister()">Ingresar</button>
+      <button mat-stroked-button  class="btn-block" routerLink="/home">Volver</button>
+    
+        <a routerLink="/register" href="" class="sign">¡Crea tu cuenta!
+          <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+        </a>
+     
+     
+    </form>
+  </mat-card>
+
+</div>
+

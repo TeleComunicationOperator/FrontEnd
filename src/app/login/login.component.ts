@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
        return ;
      }
 
-     if(this.operator!=null){
+     if(this.loginService.authenticationOperator(this.email,this.password)){
        console.log("dato entrante",this.loginService.getOperatorByEmail(this.email))
        console.log("entra");
        localStorage.setItem("email",this.email);

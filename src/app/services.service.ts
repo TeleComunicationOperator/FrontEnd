@@ -85,6 +85,10 @@ export class ServicesService {
     return this.http.put(this.Url+"clients/speech/" + id,keyWord)
   }
 
+  public getAllKeys(){
+    return this.http.get<KeyWord[]>(this.Url+"keys");
+  }
+
 
   public createOperator(operator:Operator,user:User){
     return this.http.post<Operator>(this.Url + "operators",operator);
