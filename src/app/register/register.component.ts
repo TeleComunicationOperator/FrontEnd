@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Operator } from '../models/Operator';
 import { User } from '../models/User';
 import { ServicesService } from '../services.service';
+import { SnackBarImcompleteRegisterFieldsComponent } from '../snack-bar-imcomplete-register-fields/snack-bar-imcomplete-register-fields.component';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,10 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    this.user=new User(this.name,this.email,this.password,["ROLE_CLIENT"]);
+    if(this.name=="" || this.lastName=="" || this.dni=="" || this.phone=="" || this.password==""){
+      this.snackBar.openFromComponent(SnackBarImcompleteRegisterFieldsComponent,{duration:2000,panelClass:'alert-red'});
+    }else{
+      this.user=new User(this.name,this.email,this.password,["ROLE_CLIENT"]);
     this.operator=new Operator(this.name,this.lastName,this.dni,"PENDIENTE",this.phone,this.email);
     this.service.createUser(this.operator,this.user).subscribe(data=>{
       console.log("usuariocreado",data);
@@ -37,11 +41,12 @@ export class RegisterComponent implements OnInit {
     })
     this.service.createOperator(this.operator,this.user).subscribe(data=>{
       console.log("operadorsito",data)
-      this.snackBar.open("Operador creado n.n!",'',{duration:2000,panelClass:'alert-green'})
+      this.snackBar.open("¡Operador creado!",'',{duration:2000,panelClass:'alert-green'})
       
     })
-  
     this.router.navigate(['home']);
+    }
+    
   }
 
 }
