@@ -25,15 +25,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public preRegister(){
-    this.loginService.getOperatorByEmail(this.email).subscribe((data)=>{
-      this.operator=data;
-    })
-
-    this.register();
-
-  }
   register(){
+
+    if(this.loginService.authentication(this.email,this.password)){
+      this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:2000,panelClass:'alert-green'})
+      this.router.navigate(['admin']);
+      this.invalidLogin=false;
+      return ;
+    }
+    
     this.loginService.authenticationOperator(this.email,this.password).subscribe((res)=>{
       if(res.length>0){
         localStorage.setItem("email",this.email);
@@ -50,12 +50,8 @@ export class LoginComponent implements OnInit {
       return;
     }
    })
-     if(this.loginService.authentication(this.email,this.password)){
-       this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:2000,panelClass:'alert-green'})
-       this.router.navigate(['admin']);
-       this.invalidLogin=false;
-       return ;
-     }
+
+     
      
    
  }

@@ -1,36 +1,59 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="login-wrapper padre" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>Registro</mat-card-title>
+        <img src="../../assets/logo.png" alt="">
+        Registro
       </mat-card-header>
   
       <form class="example-form">
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nombre" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Apellido" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}">
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="DNI" [(ngModel)]="dni" [ngModelOptions]="{standalone: true}">
+            <div style="display: flex;">
+              <input matInput placeholder="Nombre" [(ngModel)]="name" [ngModelOptions]="{standalone: true}">
+              <i class="bi bi-person"></i>
+            </div>
           </mat-form-field>
 
+
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Teléfono" type="tel" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+            <div style="display: flex;">
+              <input matInput placeholder="Apellido" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}">
+              <i class="bi bi-person"></i>
+            </div> 
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+            <div style="display: flex;">
+              <input matInput placeholder="DNI" [(ngModel)]="dni" [ngModelOptions]="{standalone: true}">
+              <i class="bi bi-person-video2"></i>
+            </div>
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+            <div style="display: flex;">
+              <input matInput placeholder="Teléfono" type="tel" [(ngModel)]="phone" [ngModelOptions]="{standalone: true}">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
           </mat-form-field>
   
+
           <mat-form-field class="example-full-width">
-          <input matInput placeholder="Email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+            <div style="display: flex;">
+              <input matInput placeholder="Email" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+              <i class="bi bi-envelope-fill"></i>
+            </div>
           </mat-form-field>
           
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Contraseña" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
-          </mat-form-field>
-  
 
-  
+          <mat-form-field class="example-full-width">
+            <div style="display: flex;">
+              <input matInput placeholder="Contraseña" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+              <i class="bi bi-lock-fill"></i>
+            </div>
+          </mat-form-field>
         </mat-card-content>
   
         <button mat-stroked-button color="accent" class="btn-block" (click)="register()">Registrar</button>
