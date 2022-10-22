@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogRef } from '@angular/cdk/dialog';
 import { KeyWord } from '../models/KeyWord';
 import { ServicesService } from '../services.service';

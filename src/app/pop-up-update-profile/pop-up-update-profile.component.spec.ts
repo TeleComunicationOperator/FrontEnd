@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PopUpUpdateProfileComponent } from './pop-up-update-profile.component';
 
 describe('PopUpUpdateProfileComponent', () => {

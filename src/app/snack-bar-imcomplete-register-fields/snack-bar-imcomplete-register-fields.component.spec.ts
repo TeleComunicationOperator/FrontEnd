@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SnackBarImcompleteRegisterFieldsComponent } from './snack-bar-imcomplete-register-fields.component';
 
 describe('SnackBarImcompleteRegisterFieldsComponent', () => {

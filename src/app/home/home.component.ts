@@ -8,6 +8,7 @@ import { ServicesService } from '../services.service';
 import { User } from '../models/User';
 import { MatDialog } from '@angular/material/dialog';
 import { SeeOperatorInformationComponent } from '../see-operator-information/see-operator-information.component';
+import { KeyWordListOperatorComponent } from '../key-word-list-operator/key-word-list-operator.component';
 
 @Component({
   selector: 'app-home',
@@ -58,6 +59,9 @@ export class HomeComponent implements OnInit {
       localStorage.clear();
     }
 
+    public assignKeyWord(){
+      this.popup.open(KeyWordListOperatorComponent)
+    }
   
 
 }

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SnackBarComponentFail } from './snack-bar.component';
 
 describe('SnackBarComponent', () => {

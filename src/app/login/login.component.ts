@@ -1,8 +1,7 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ServicesService } from '../services.service';
-import {MatSnackBar} from '@angular/material/snack-bar';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackBarComponentFail } from '../snack-bar/snack-bar.component';
 import { SnackBarSuccesfullComponent } from '../snack-bar-succesfull/snack-bar-succesfull.component';
 import { Operator } from '../models/Operator';

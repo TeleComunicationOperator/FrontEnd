@@ -5,9 +5,8 @@ import { Observable, map, shareReplay } from 'rxjs';
 import { Client } from '../models/Client';
 import { Operator } from '../models/Operator';
 import { ServicesService } from '../services.service';
-
 import { PopUpComponent } from '../pop-up/pop-up.component';
-import {MatDialog} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { PopUpSeeSpeechComponent } from '../pop-up-see-speech/pop-up-see-speech.component';
 import { PopUpSeeKeyWordsComponent } from '../pop-up-see-key-words/pop-up-see-key-words.component';
 import { PopUpUpdateProfileComponent } from '../pop-up-update-profile/pop-up-update-profile.component';
