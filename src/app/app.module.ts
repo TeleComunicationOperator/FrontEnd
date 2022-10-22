@@ -24,6 +24,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SeeOperatorInformationComponent } from './see-operator-information/see-operator-information.component';
 import { SeeClientInfoComponent } from './see-client-info/see-client-info.component';
 import { KeyWordsAdminComponent } from './key-words-admin/key-words-admin.component';
+import { AddKeyWordFormComponent } from './add-key-word-form/add-key-word-form.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { KeyWordsAdminComponent } from './key-words-admin/key-words-admin.compon
     LandingPageComponent,
     SeeOperatorInformationComponent,
     SeeClientInfoComponent,
-    KeyWordsAdminComponent
+    KeyWordsAdminComponent,
+    AddKeyWordFormComponent
   ],
   imports: [
     BrowserModule,

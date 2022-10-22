@@ -82,6 +82,12 @@ export class ServicesService {
     return this.http.get<KeyWord[]>(this.Url+"keys");
   }
 
+  public createKey(key:KeyWord){
+    console.log("llave a crear",key)
+    return this.http.post<KeyWord>(this.Url+"keys",key).subscribe();
+
+  }
+
 
   public createOperator(operator:Operator,user:User){
     return this.http.post<Operator>(this.Url + "operators",operator);

@@ -1,6 +1,8 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable, map, shareReplay } from 'rxjs';
+import { AddKeyWordFormComponent } from '../add-key-word-form/add-key-word-form.component';
 import { KeyWord } from '../models/KeyWord';
 import { ServicesService } from '../services.service';
 
@@ -19,7 +21,7 @@ export class KeyWordsAdminComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private service:ServicesService,private breakpointObserver: BreakpointObserver) { }
+  constructor(private service:ServicesService,private breakpointObserver: BreakpointObserver,private popUp:MatDialog) { }
 
   ngOnInit(): void {
     this.service.getAllKeys().subscribe((data)=>{
@@ -41,6 +43,9 @@ export class KeyWordsAdminComponent implements OnInit {
     console.log("llavesitaActiva",key)
     this.service.changeKeyStatus(key);
 
+  }
+  public addNewKeyword(){
+    this.popUp.open(AddKeyWordFormComponent);
   }
 
 }
