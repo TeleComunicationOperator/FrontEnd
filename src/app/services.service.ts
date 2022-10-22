@@ -47,12 +47,14 @@ export class ServicesService {
   }
   public updateUser(user:UserUpdate){
     var email=localStorage.getItem("email");
-    console.log("Email",email);
     this.http.put<UserUpdate>(`http://34.238.36.139/users/update/`+email,user).subscribe();
-    console.log("Email2",user)
     localStorage.clear();
     localStorage.setItem("email",user.email)
     return;
+  }
+
+  public updateKey(key:KeyWord){
+    return this.http.put<KeyWord>(this.Url+"keys/"+key.id,key).subscribe();
   }
 
   

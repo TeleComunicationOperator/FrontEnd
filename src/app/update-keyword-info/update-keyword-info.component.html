@@ -1,0 +1,21 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>Nueva Palabra Clave</mat-card-title>
+    </mat-card-header>
+    <mat-card-content  style="text-align:center">
+        <input type="text" placeholder="Nombre" style="margin:5%" [(ngModel)]="keyword.name" [ngModelOptions]="{standalone: true}">
+        <mat-form-field  style="display: block;margin:5%">
+            
+            <mat-label>Ingrese estado</mat-label>
+            <select  matNativeControl name="" id="" [(ngModel)]="keyword.active" [ngModelOptions]="{standalone: true}">
+                <option value={{status}} selected>{{status}}</option>
+                <option value="ACTIVO" *ngIf="status=='INACTIVO'">ACTIVO</option>
+                <option value="INACTIVO" *ngIf="status=='ACTIVO'">INACTIVO</option>
+            </select>
+        </mat-form-field>
+       
+        <mat-card-action>
+            <button type="button" class="btn btn-primary" (click)="saveChanges()">Guardar cambios</button>
+        </mat-card-action>
+    </mat-card-content>
+</mat-card>

@@ -33,6 +33,7 @@
           <th scope="col">ID</th>
           <th scope="col" style="padding-left: 15%;">PALABRA CLAVE</th>
           <th scope="col" style="padding-left: 3%;">ESTADO</th>
+          <th scope="col" style="padding-left: 2.5%;">ACCIÓN</th>
           
         </thead>
         <tr *ngFor="let key of keywords" >
@@ -40,6 +41,7 @@
             <td style="padding-left: 15%;">{{key.name}}</td>
             <td *ngIf="key.active==true"><button mat-raised-button class="btn" style="background-color: #3CFF33;width: 100px;color: black;" (click)="changeToInactive(key)">Activo</button></td>
             <td *ngIf="key.active==false"><button mat-stroked-button class="btn" style="background-color: red; width: 100px;color: white;opacity: 60%;" (click)="changeToActive(key)">Inactivo</button></td>
+            <td><button type="button" class="btn btn-primary" style="background-color: blue;width: 100px;" (click)="updateInfo(key)">Modificar</button></td>
         </tr>
       </table>     
     </mat-sidenav-content>

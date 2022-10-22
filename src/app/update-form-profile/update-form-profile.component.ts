@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { SnackBarIncompleteFieldsComponent } from '../snack-bar-incomplete-fields/snack-bar-incomplete-fields.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { SnackBardUpdatedOperatorComponent } from '../snack-bard-updated-operator/snack-bard-updated-operator.component';
 
 @Component({
   selector: 'app-update-form-profile',
@@ -53,7 +54,11 @@ export class UpdateFormProfileComponent implements OnInit {
       this.service.updateUser(this.user);
       this.service.updateOperator(this.operator);
       this.router.navigate(['teleoperadores']);
-      //window.location.reload();
+      this.snackbar.openFromComponent(SnackBardUpdatedOperatorComponent,{duration:2000,panelClass:'alert-green'})
+      setTimeout(()=>{
+        window.location.reload();
+      },2000)
+      
     }
     
     

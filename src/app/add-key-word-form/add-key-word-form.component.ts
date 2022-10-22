@@ -16,7 +16,7 @@ export class AddKeyWordFormComponent implements OnInit {
   keyword:KeyWord;
 
   name:string="";
-  active:any;
+  active:any="";
 
   constructor(private snackBar:MatSnackBar,private service:ServicesService) { }
 
@@ -24,19 +24,21 @@ export class AddKeyWordFormComponent implements OnInit {
   }
 
   public addNewKeyword(){
-    console.log("nombre",this.name)
-    console.log("estado",this.active)
+    this.keyword=new KeyWord(this.name,this.active);
 
-    if(this.active=="ACTIVO") this.active=true
-    else if(this.active=="INACTIVO") this.active=false;
+    if(this.active=="ACTIVO") this.keyword.active=true
+    else if(this.active=="INACTIVO") this.keyword.active=false;
 
-    if(this.name=="" || this.active==undefined){
+    if(this.name=="" || this.active==""){
       this.snackBar.openFromComponent(SnackBarImcompleteRegisterFieldsComponent,{duration:2000,panelClass:'alert-red'})
     }else{
-      this.keyword=new KeyWord(this.name,this.active);
+      
       this.service.createKey(this.keyword);
       this.snackBar.openFromComponent(SucessfullCreatedKeyComponent,{duration:2000,panelClass:'alert-green'})
-      window.location.reload();
+      setTimeout(()=>{
+        window.location.reload();
+      },2000)
+      
     }
 
   }

@@ -25,6 +25,7 @@ import { SeeOperatorInformationComponent } from './see-operator-information/see-
 import { SeeClientInfoComponent } from './see-client-info/see-client-info.component';
 import { KeyWordsAdminComponent } from './key-words-admin/key-words-admin.component';
 import { AddKeyWordFormComponent } from './add-key-word-form/add-key-word-form.component';
+import { UpdateKeywordInfoComponent } from './update-keyword-info/update-keyword-info.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AddKeyWordFormComponent } from './add-key-word-form/add-key-word-form.c
     SeeOperatorInformationComponent,
     SeeClientInfoComponent,
     KeyWordsAdminComponent,
-    AddKeyWordFormComponent
+    AddKeyWordFormComponent,
+    UpdateKeywordInfoComponent
   ],
   imports: [
     BrowserModule,

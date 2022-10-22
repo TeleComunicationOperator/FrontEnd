@@ -5,6 +5,7 @@ import { Observable, map, shareReplay } from 'rxjs';
 import { AddKeyWordFormComponent } from '../add-key-word-form/add-key-word-form.component';
 import { KeyWord } from '../models/KeyWord';
 import { ServicesService } from '../services.service';
+import { UpdateKeywordInfoComponent } from '../update-keyword-info/update-keyword-info.component';
 
 @Component({
   selector: 'app-key-words-admin',
@@ -46,6 +47,11 @@ export class KeyWordsAdminComponent implements OnInit {
   }
   public addNewKeyword(){
     this.popUp.open(AddKeyWordFormComponent);
+  }
+
+  public updateInfo(key:KeyWord){
+    this.popUp.open(UpdateKeywordInfoComponent,{data:key});
+
   }
 
 }
