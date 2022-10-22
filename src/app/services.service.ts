@@ -5,6 +5,7 @@ import { User } from './models/User';
 import { Client } from './models/Client';
 import { KeyWord } from './models/KeyWord';
 import { Token } from '@angular/compiler';
+import { UserUpdate } from './models/Userupdate';
 const TOKEN_KEY='AuthToken';
 const EMAIL_KEY='AuthUsername';
 const USER_ROLE='AuthUserRoles';
@@ -39,13 +40,19 @@ export class ServicesService {
      return this.http.get(this.Url+'users/signin?email=' + email+'&password='+ password,{responseType:'text'})
   }
   public updateOperator(operator:Operator){
+    console.log("operator",operator)
 
-    console.log("operator que paso",operator)
+    return this.http.put<Operator>(this.Url+"operators/"+operator.id,operator).subscribe();
 
   }
-  public updateUser(user:User){
-
-
+  public updateUser(user:UserUpdate){
+    var email=localStorage.getItem("email");
+    console.log("Email",email);
+    this.http.put<UserUpdate>(`http://34.238.36.139/users/update/`+email,user).subscribe();
+    console.log("Email2",user)
+    localStorage.clear();
+    localStorage.setItem("email",user.email)
+    return;
   }
 
   

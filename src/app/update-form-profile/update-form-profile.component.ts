@@ -2,7 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Operator } from '../models/Operator';
 import { ServicesService } from '../services.service';
-import { User } from '../models/User';
+import { UserUpdate } from '../models/Userupdate';
 
 @Component({
   selector: 'app-update-form-profile',
@@ -11,7 +11,7 @@ import { User } from '../models/User';
 })
 export class UpdateFormProfileComponent implements OnInit {
   operator:Operator;
-  user:User;
+  user:UserUpdate;
   nombres:string;
   apellidos:string;
   dni:string;
@@ -35,13 +35,13 @@ export class UpdateFormProfileComponent implements OnInit {
     this.operator.name=this.nombres;
     this.operator.lastName=this.apellidos;
     this.operator.phone=this.telefono;
-    this.user.email=this.email;
-    this.user.password=this.user.password;
+    this.user=new UserUpdate(this.email,this.contrasenia);
     console.log("AEA",this.operator)
-    console.log("Operador a pasar",this.operator2)
+    console.log("Operador a pasar",this.operator)
     console.log("Usuario a pasar",this.user);
     this.service.updateUser(this.user);
-    this.service.updateOperator(this.operator2);
+    this.service.updateOperator(this.operator);
+    
   }
 
 }
