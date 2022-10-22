@@ -14,8 +14,8 @@ import { SnackBarIncompleteFieldsComponent } from '../snack-bar-incomplete-field
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  email="";
-  password="";
+  email:string="";
+  password:string="";
   invalidLogin=false;
   operator:Operator;
   logged:boolean=false;
@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
       this.loginService.authenticationOperator(this.email,this.password).subscribe((res)=>{
         if(res.length>0){
           localStorage.setItem("email",this.email);
+          localStorage.setItem("password",this.password)
           this.snackBar.openFromComponent(SnackBarSuccesfullComponent,{duration:2000,panelClass:'alert-green'})
           this.router.navigate(['teleoperadores']);
           this.invalidLogin=false;

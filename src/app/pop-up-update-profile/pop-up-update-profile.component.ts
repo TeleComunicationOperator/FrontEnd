@@ -23,6 +23,7 @@ export class PopUpUpdateProfileComponent implements OnInit {
 
   public updateInfo(){
     this.popUp.open(UpdateFormProfileComponent,{data:this.operator});
+
   }
 
 }
