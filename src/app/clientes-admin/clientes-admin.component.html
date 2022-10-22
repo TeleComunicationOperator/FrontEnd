@@ -36,6 +36,7 @@
           <th scope="col" style="padding-left: 11%;">TELÉFONO</th>
           <th scope="col" style="padding-left: 17.5%;">KEYWORDS</th>
           <th scope="col" style="padding-left: 14%;">DISCURSO</th>
+          <th scope="col" style="padding-left: 10%;">ASIGNAR</th>
           <!--<th style="padding-left: 9%;">INFORMACIÓN</th>-->
         </thead>
         <tr *ngFor="let client of clients;let i = index">
@@ -46,6 +47,7 @@
           <td style="padding-left: 11%;">{{client.phone}}</td>
           <td style="padding-left: 12%;"><button class="rounded-pill" (click)="seeKeyWords(client)">Ver Palabras Clave</button></td>
           <td style="padding-left: 8%;"><button class="rounded-pill" (click)="seeSpeech(client)">Ver Speech</button></td>
+          <td style="padding-left: 4%;"><button class="rounded-pill" (click)="asignar(client)">Asignar</button></td>
           <!--<td  style="padding-left:4%"><button class="rounded-pill" (click)="seeInfoClient(client)">Ver más</button></td>-->
         </tr>
       </table>     
