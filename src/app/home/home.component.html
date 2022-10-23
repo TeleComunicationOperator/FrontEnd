@@ -43,7 +43,7 @@
           <td style="padding-left: 5%;" *ngIf="operator.type=='NOVATO'"><button type="button" class="btn" style="background-color: teal;color: white; width: 130px; opacity: 80%;" (click)="changeType(operator)">{{operator.type}}</button></td>
           <td style="padding-left: 5%;" *ngIf="operator.type=='EXPERTO'"><button type="button" class="btn" style="background-color: blue;color: white; width: 130px;" (click)="changeType(operator)">{{operator.type}}</button></td>
           <td style="padding-left: 0.7%;"><button class="rounded-pill" (click)="seeMoreInfo(operator)">Ver más</button></td>
-          <td style="padding-left: 1%;"><button class="rounded-pill" (click)="assignKeyWord()">Asignar</button></td>
+          <td style="padding-left: 1%;"><button class="rounded-pill" (click)="assignKeyWord(operator)">Asignar</button></td>
         </tr>
       </table>     
     </mat-sidenav-content>

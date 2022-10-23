@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { KeyWord } from '../models/KeyWord';
+import { Operator } from '../models/Operator';
 import { ServicesService } from '../services.service';
 
 @Component({
@@ -9,15 +11,23 @@ import { ServicesService } from '../services.service';
 })
 export class KeyWordListOperatorComponent implements OnInit {
   keywords:KeyWord[];
-
-  constructor(private service:ServicesService) { }
+  operator:Operator;
+  seleccionados:KeyWord[]=[];
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private service:ServicesService) { }
 
   ngOnInit(): void {
     this.service.getAllKeys().subscribe((data)=>{
-      this.keywords=data;
+      this.keywords=data.filter((t: { active: boolean; })=>t.active==true);
       console.log("llaves",this.keywords)
 
     })
+    this.operator=this.data;
   }
 
+  save(){
+    console.log(this.seleccionados)
+    this.operator.keyWordList = this.seleccionados
+    this.service.updateOperator(this.operator)
+    window.location.reload()
+  }
 }

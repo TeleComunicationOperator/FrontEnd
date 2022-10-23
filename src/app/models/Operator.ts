@@ -1,3 +1,4 @@
+import { KeyWord } from './KeyWord';
 export class Operator{
     id:number;
     name: string;
@@ -6,7 +7,7 @@ export class Operator{
     phone: string;
     email: string;
     type: string;
-    keyWordList: string[];
+    keyWordList: KeyWord[];
     constructor(name:string,lastName:string,dni:string,type:string,phone:string,email:string){
         this.name=name;
         this.lastName=lastName;

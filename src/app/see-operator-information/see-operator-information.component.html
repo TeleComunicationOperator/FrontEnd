@@ -20,7 +20,7 @@
             <label for="" style="font-size: 1.5em;"><strong>Tipo</strong></label>
             <p style="font-size: 1.25em">{{operator.type}}</p>
             <label for="" style="font-size: 1.5em;"><strong>Palabras Claves</strong></label>
-            <p style="font-size: 1.25em;">{{operator.keyWordList}}</p>
+            <p style="font-size: 1.25em;" *ngFor="let item of operator.keyWordList">{{item.name}}</p>
         </div>
 
     </mat-card-content>

@@ -59,8 +59,8 @@ export class HomeComponent implements OnInit {
       localStorage.clear();
     }
 
-    public assignKeyWord(){
-      this.popup.open(KeyWordListOperatorComponent)
+    public assignKeyWord(operator:Operator){
+      this.popup.open(KeyWordListOperatorComponent,{data:operator})
     }
   
 
