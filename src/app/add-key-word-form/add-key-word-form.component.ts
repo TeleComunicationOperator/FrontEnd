@@ -30,7 +30,7 @@ export class AddKeyWordFormComponent implements OnInit {
     if(this.name=="" || this.active==""){
       this.snackBar.openFromComponent(SnackBarImcompleteRegisterFieldsComponent,{duration:2000,panelClass:'alert-red'})
     }else{
-      
+      console.log(this.keyword)
       this.service.createKey(this.keyword);
       this.snackBar.openFromComponent(SucessfullCreatedKeyComponent,{duration:2000,panelClass:'alert-green'})
       setTimeout(()=>{
