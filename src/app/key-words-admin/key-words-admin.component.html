@@ -18,14 +18,21 @@
     <mat-sidenav-content>
       <mat-toolbar style="height: 70px;background-color: white;">
         <span style="justify-content: flex-start;color: black;">Clientes</span>
-        <mat-card style="justify-content: flex-end; margin-left: 87.4%; width: 160px; height: 70px;background-color: #ffffff;">
-          <mat-card-header >
-            <img src="https://w7.pngwing.com/pngs/823/310/png-transparent-kawaii-cat-kitten-happy-tamed-animal-tender-pet-feline-fun-thumbnail.png" mat-card-avatar>
-            <mat-card-title style="color:black;height: 20px;">Grecia</mat-card-title>
-            <mat-card-subtitle style="color:black">Admin</mat-card-subtitle>
-            
-          </mat-card-header>
-        </mat-card>
+        <div style="margin-left:89%;display: flex;color: black;"  >
+          <div>
+            <img src="../../assets/boss.png" alt="" style="width: 60px;height:60px">
+          </div>
+         
+         <div>
+          <div>
+            Grecia
+          </div>
+          <div>
+            Admi
+          </div>
+
+         </div>
+        </div>
       </mat-toolbar>
       <button type="button" class="btn btn-primary" style="margin-left: 40%;margin-top:5%" (click)="addNewKeyword()">Añadir palabra clave</button>
       <table class="table">
