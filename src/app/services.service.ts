@@ -18,8 +18,8 @@ export class ServicesService {
   roles:Array<string>=[];
   keyword:KeyWord;
   emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
-  Url='http://34.238.36.139/'
-  UrlUsers='http://34.238.36.139/users/signup'
+  Url=' https://www.tlcomunication.online/'
+  UrlUsers='https://www.tlcomunication.online/users/signup'
   UrlSpeech='http://34.197.6.89/speech'
   token: string;
 
@@ -47,7 +47,7 @@ export class ServicesService {
   }
   public updateUser(user:UserUpdate){
     var email=localStorage.getItem("email");
-    this.http.put<UserUpdate>(`http://34.238.36.139/users/update/`+email,user).subscribe();
+    this.http.put<UserUpdate>(`https://www.tlcomunication.online/users/update`+email,user).subscribe();
     localStorage.clear();
     localStorage.setItem("email",user.email)
     return;
