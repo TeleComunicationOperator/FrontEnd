@@ -5,7 +5,7 @@ import { UserUpdate } from '../models/Userupdate';
 import { Router } from '@angular/router';
 import { SnackBarIncompleteFieldsComponent } from '../snack-bar-incomplete-fields/snack-bar-incomplete-fields.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SnackBardUpdatedOperatorComponent } from '../snack-bard-updated-operator/snack-bard-updated-operator.component';
 
 @Component({
@@ -24,7 +24,7 @@ export class UpdateFormProfileComponent implements OnInit {
   email:string="";
   operator2:Operator;
 
-  constructor(private router:Router,@Inject(MAT_DIALOG_DATA) public data:any,private service:ServicesService,private snackbar:MatSnackBar) { }
+  constructor(private router:Router,@Inject(MAT_DIALOG_DATA) public data:any,private service:ServicesService,private snackbar:MatSnackBar,private popUp:MatDialog) { }
 
   ngOnInit(): void {
     this.operator=this.data;
@@ -55,9 +55,7 @@ export class UpdateFormProfileComponent implements OnInit {
       this.service.updateOperator(this.operator);
       this.router.navigate(['teleoperadores']);
       this.snackbar.openFromComponent(SnackBardUpdatedOperatorComponent,{duration:2000,panelClass:'alert-green'})
-      setTimeout(()=>{
-        window.location.reload();
-      },2000)
+      this.popUp.closeAll();
       
     }
     

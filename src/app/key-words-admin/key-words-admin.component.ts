@@ -47,6 +47,8 @@ export class KeyWordsAdminComponent implements OnInit {
   }
   public addNewKeyword(){
     this.popUp.open(AddKeyWordFormComponent);
+    this.popUp.closeAll()
+    
   }
 
   public updateInfo(key:KeyWord){

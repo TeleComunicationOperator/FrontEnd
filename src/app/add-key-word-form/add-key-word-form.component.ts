@@ -33,9 +33,7 @@ export class AddKeyWordFormComponent implements OnInit {
       console.log(this.keyword)
       this.service.createKey(this.keyword);
       this.snackBar.openFromComponent(SucessfullCreatedKeyComponent,{duration:2000,panelClass:'alert-green'})
-      setTimeout(()=>{
-        window.location.reload();
-      },2000)
+      
       
     }
 

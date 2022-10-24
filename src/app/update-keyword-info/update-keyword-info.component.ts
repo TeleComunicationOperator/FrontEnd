@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { KeyWord } from '../models/KeyWord';
 import { ServicesService } from '../services.service';
@@ -17,7 +17,7 @@ export class UpdateKeywordInfoComponent implements OnInit {
   name:string="";
   status:any="";
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private snackBar:MatSnackBar,private service:ServicesService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private snackBar:MatSnackBar,private service:ServicesService,private popUp:MatDialog) { }
 
   ngOnInit(): void {
     
@@ -38,10 +38,7 @@ export class UpdateKeywordInfoComponent implements OnInit {
     }else{
       this.service.updateKey(this.keyword);
       this.snackBar.openFromComponent(SnackBarUpdatedKeyComponent,{duration:2000,panelClass:'alert-green'})
-      setTimeout(()=>{
-        window.location.reload();
-      },2000)
-      
+      this.popUp.closeAll()
     }
   }
 

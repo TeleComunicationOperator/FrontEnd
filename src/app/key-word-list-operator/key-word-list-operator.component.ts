@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { KeyWord } from '../models/KeyWord';
 import { Operator } from '../models/Operator';
 import { ServicesService } from '../services.service';
@@ -13,7 +13,7 @@ export class KeyWordListOperatorComponent implements OnInit {
   keywords:KeyWord[];
   operator:Operator;
   seleccionados:KeyWord[]=[];
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private service:ServicesService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private service:ServicesService,private popUp:MatDialog) { }
 
   ngOnInit(): void {
     this.service.getAllKeys().subscribe((data)=>{
@@ -28,6 +28,6 @@ export class KeyWordListOperatorComponent implements OnInit {
     console.log(this.seleccionados)
     this.operator.keyWordList = this.seleccionados
     this.service.updateOperator(this.operator)
-    window.location.reload()
+    this.popUp.closeAll()
   }
 }
